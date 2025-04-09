@@ -7,7 +7,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './css/Admin.css';
-
+import url from './url';
 const Admin = () => {
   const [menus, setMenus] = useState([]);
   const [selectedMenuIndex, setSelectedMenuIndex] = useState(null);
@@ -20,7 +20,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchMenus = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/getmenu');
+        const res = await axios.get(`${url}/getmenu`);
         setMenus(res.data.menus || []);
       } catch (err) {
         toast.error('Failed to fetch menus');
@@ -33,7 +33,7 @@ const Admin = () => {
 
   const handleAddMenu = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/api/createmenu', {
+      const res = await axios.post(`${url}/createmenu`, {
         menuname: newMenu.name,
         description: newMenu.description,
       });
@@ -52,7 +52,7 @@ const Admin = () => {
 
     const selectedMenu = menus[index];
     try {
-      const res = await axios.get(`http://localhost:3000/api/getmenuitem/${selectedMenu._id}`);
+      const res = await axios.get(`${url}/getmenuitem/${selectedMenu._id}`);
       setMenuItems(res.data.menuItems || []);
     } catch (err) {
       toast.error('Failed to fetch menu items');
@@ -66,7 +66,7 @@ const Admin = () => {
 
     const selectedMenu = menus[selectedMenuIndex];
     try {
-      const res = await axios.post('http://localhost:3000/api/createitem', {
+      const res = await axios.post(`${url}/createitem`, {
         menuId: selectedMenu._id,
         name: newMenuItem.name,
         description: newMenuItem.description,
@@ -84,7 +84,7 @@ const Admin = () => {
 
   const handleDeleteMenu = async (menuId, index) => {
     try {
-      await axios.delete(`http://localhost:3000/api/deletemenu/${menuId}`);
+      await axios.delete(`${url}/deletemenu/${menuId}`);
       const updatedMenus = [...menus];
       updatedMenus.splice(index, 1);
       setMenus(updatedMenus);
@@ -99,7 +99,7 @@ const Admin = () => {
 
   const handleDeleteMenuItem = async (itemId, itemIndex) => {
     try {
-      await axios.delete(`http://localhost:3000/api/deletemenuitem/${itemId}`);
+      await axios.delete(`${url}/deletemenuitem/${itemId}`);
       const updatedMenuItems = [...menuItems];
       updatedMenuItems.splice(itemIndex, 1);
       setMenuItems(updatedMenuItems);
@@ -120,7 +120,7 @@ const Admin = () => {
 
     const menuItemToEdit = menuItems[editingItemIndex];
     try {
-      const res = await axios.put(`http://localhost:3000/api/editmenu/${menuItemToEdit._id}`, editedItem);
+      const res = await axios.put(`${url}/${menuItemToEdit._id}`, editedItem);
 
       const updatedMenuItems = [...menuItems];
       updatedMenuItems[editingItemIndex] = res.data.menuItem; 

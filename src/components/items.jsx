@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import glass1 from "./images/glass1.png";
 import glass2 from "./images/glass2.png";
-
+import url from "./url";
 export default function Items({ selectedCategory }) {
   const [categoryItems, setCategoryItems] = useState([]); 
   const [categoryName, setCategoryName] = useState("");
@@ -13,7 +13,7 @@ export default function Items({ selectedCategory }) {
     const fetchCategoryData = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`http://localhost:3000/api/getmenuitem/${selectedCategory}`);
+        const response = await axios.get(`${url}/getmenuitem/${selectedCategory}`);
         setCategoryName(response.data.menuName || "Unknown Category"); 
         setCategoryItems(response.data.menuItems || []); 
       } catch (error) {

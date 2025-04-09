@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/menu.css";
 import Items from "./items";
-
+import url from "./url";
 export default function Menu() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -10,7 +10,7 @@ export default function Menu() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/getmenu"); 
+        const res = await axios.get(`${url}/getmenu`); 
         const fetchedCategories = res.data.menus || [];
         setCategories(fetchedCategories);
         if (fetchedCategories.length > 0) {
