@@ -1,0 +1,217 @@
+/* Include the Oswald font */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
+/* Global reset and body styling */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  background-color: rgba(18, 22, 24, 0.95);
+  color: white;
+  width: 100%;
+  padding: 40px;
+  z-index: 1000;
+  position: relative;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  left: 10%;
+  top: 72%;
+}
+
+img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.deep {
+  color: #007bff;
+}
+
+.net {
+  color: white;
+}
+
+.soft {
+  color: gray;
+}
+
+/* Nav links with Oswald font applied */
+.nav-links {
+  display: flex;
+  gap: 1px;
+  position: absolute;
+  bottom: 10px; /* Align at the bottom */
+  right: 20px; /* Align to the right */
+  font-family: 'Oswald', sans-serif; /* Use Oswald font */
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s, background-color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.nav-links-mobile a {
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for mobile links */
+}
+
+.nav-links-mobile a:hover {
+  color: #007bff;
+}
+
+.mobile-menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.center-logo {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 20px;
+    height: 80px;
+  }
+
+  .mainlogo {
+    display: none;
+  }
+
+  .center-logo {
+    display: block;
+  }
+
+  .center-logo img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links-mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: rgba(18, 22, 24, 0.95);
+    padding: 20px;
+    margin-top: 1.5rem;
+    gap: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links-mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background-color: rgba(18, 22, 24, 0.95);
+    padding: 20px;
+    gap: 1rem;
+    border-radius: 12px;
+    width: 85%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+  }
+}

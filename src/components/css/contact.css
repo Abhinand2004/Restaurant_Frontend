@@ -1,0 +1,132 @@
+.contactBody {
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  color: white;
+  gap: 25px;
+  padding: 60px;
+
+}
+
+.contactBodyGrid1,
+.contactBodyGrid2,
+.contactBodyGrid3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 20px;
+  min-height: 150px;
+}
+
+.contactBodyGrid1 p {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+}
+
+.contactBodyGrid1 p i {
+  color: rgb(142, 142, 29);
+}
+
+.contactBodyGrid1 span {
+  color: rgb(153, 150, 150);
+}
+
+.contactBodyGrid2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the logo vertically */
+}
+
+.contactBodyGrid2 img {
+  position: static; /* Reset position to allow centering */
+  max-height: 100px; /* Set a maximum height for the logo */
+  margin-bottom: 10px; /* Add spacing between the logo and the heading */
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.contactBodyGrid1 h5 {
+  color: #007bff;
+  padding-bottom: 5px;
+}
+
+.contactBodyGrid2 h1 {
+  padding-bottom: 5px;
+  text-align: center; /* Ensure the text is centered below the logo */
+}
+
+.contactBodyGrid3 h4 {
+  color: #007bff; /* Blue color for "FIND US" */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Gap between icon and text */
+}
+h5{
+  color: #007bff;
+font-size: 14px;
+}
+.contactBodyGrid3 .mapIcon {
+  color: rgb(255, 223, 0); /* Yellow color for the map icon */
+  font-size: 18px;
+}
+
+.contactBodyGrid3 p {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1.5;
+  gap: 10px; /* Gap between icon and location text */
+  text-align: left;
+}
+
+.contactBodyGrid3 span {
+  color: rgb(153, 150, 150);
+}
+
+@media (max-width: 900px) {
+  .contactBody {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .contactBodyGrid2 h1 {
+    font-size: 20px;
+  }
+
+  .contactBodyGrid3 p {
+    font-size: 13px;
+  }
+
+  .contactBodyGrid3 .locationIcon {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactBody {
+    padding: 30px;
+  }
+
+  .contactBodyGrid1 p {
+    font-size: 10px;
+  }
+
+  .contactBodyGrid2 h1 {
+    font-size: 18px;
+  }
+
+  .contactBodyGrid3 p {
+    font-size: 12px;
+  }
+
+  .contactBodyGrid3 .locationIcon {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,78 @@
+/* Include Kelly Slab and Oswald fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
+.menuBodyTopSection {
+  height: 50vh;
+  background-image: url("../images/menu-poster.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuBodyCategorySection {
+  background-image: url("../images/menu-poster2.jpg");
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Apply Oswald font to menuCategory */
+.menuCategory {
+  height: 40px;
+  width: 100px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  background-color: black;
+  color: white;
+  border: 2px solid blue;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Oswald', sans-serif; /* Font applied here */
+}
+
+.menuCategory:hover {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+.menuBodyTopSection .menuBodyHead1 {
+  font-size: 70px;
+  color: white;
+  text-shadow: 5px 1px rgb(187, 11, 11);
+}
+
+/* Retain Kelly Slab font for menuBodyPara */
+.menuBodyTopSection .menuBodyPara {
+  color: rgb(247, 247, 247);
+  text-align: center;
+  white-space: pre-line;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: 'Kelly Slab', cursive; /* Font applied here */
+}
+
+@media (max-width: 900px) {
+  .menuBodyTopSection {
+    background-size: cover;
+  }
+
+  .menuCategory {
+    padding-inline: 10px;
+  }
+
+  .menuBodyTopSection .menuBodyPara {
+    padding-inline: 10px;
+    font-size: 16px;
+  }
+}
