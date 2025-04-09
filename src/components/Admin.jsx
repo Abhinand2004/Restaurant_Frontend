@@ -120,7 +120,7 @@ const Admin = () => {
 
     const menuItemToEdit = menuItems[editingItemIndex];
     try {
-      const res = await axios.put(`${url}/${menuItemToEdit._id}`, editedItem);
+      const res = await axios.put(`${url}/editmenu/${menuItemToEdit._id}`, editedItem);
 
       const updatedMenuItems = [...menuItems];
       updatedMenuItems[editingItemIndex] = res.data.menuItem; 
