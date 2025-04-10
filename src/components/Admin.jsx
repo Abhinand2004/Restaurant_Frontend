@@ -8,11 +8,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './css/Admin.css';
 import url from './url';
-
 const Admin = () => {
   const [menus, setMenus] = useState([]);
   const [selectedMenuIndex, setSelectedMenuIndex] = useState(null);
-  const [menuItems, setMenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState([]); 
   const [newMenu, setNewMenu] = useState({ name: '', description: '' });
   const [newMenuItem, setNewMenuItem] = useState({ name: '', description: '', price: '' });
   const [editingItemIndex, setEditingItemIndex] = useState(null);
@@ -24,7 +23,7 @@ const Admin = () => {
         const res = await axios.get(`${url}/getmenu`);
         setMenus(res.data.menus || []);
       } catch (err) {
-        toast.error('Unable to fetch menus. Please try again later.');
+        toast.error('Failed to fetch menus');
         console.error('Failed to fetch menus', err);
       }
     };
@@ -56,7 +55,7 @@ const Admin = () => {
       const res = await axios.get(`${url}/getmenuitem/${selectedMenu._id}`);
       setMenuItems(res.data.menuItems || []);
     } catch (err) {
-      toast.error('Unable to fetch menu items. Please try again later.');
+      toast.error('Failed to fetch menu items');
       console.error('Failed to fetch menu items:', err);
       setMenuItems([]);
     }
@@ -93,7 +92,7 @@ const Admin = () => {
       setMenuItems([]);
       toast.success('Menu deleted successfully!');
     } catch (err) {
-      toast.error('Unable to delete menu. Please try again later.');
+      toast.error('Failed to delete menu');
       console.error('Error deleting menu:', err);
     }
   };
@@ -106,14 +105,14 @@ const Admin = () => {
       setMenuItems(updatedMenuItems);
       toast.success('Menu item deleted successfully!');
     } catch (err) {
-      toast.error('Unable to delete menu item. Please try again later.');
+      toast.error('Failed to delete menu item');
       console.error('Error deleting menu item:', err);
     }
   };
 
   const handleEditMenuItem = (index) => {
     setEditingItemIndex(index);
-    setEditedItem(menuItems[index]);
+    setEditedItem(menuItems[index]); 
   };
 
   const handleSaveMenuItem = async () => {
@@ -124,7 +123,7 @@ const Admin = () => {
       const res = await axios.put(`${url}/editmenu/${menuItemToEdit._id}`, editedItem);
 
       const updatedMenuItems = [...menuItems];
-      updatedMenuItems[editingItemIndex] = res.data.menuItem;
+      updatedMenuItems[editingItemIndex] = res.data.menuItem; 
       setMenuItems(updatedMenuItems);
       setEditingItemIndex(null);
       toast.success('Menu item saved successfully!');
@@ -138,7 +137,7 @@ const Admin = () => {
     <div className="admin-container">
       <ToastContainer />
       <Typography variant="h4" className="admin-title">
-        MENU
+        MENU 
       </Typography>
       <Box className="admin-layout">
         <Box className="menu-sidebar">
