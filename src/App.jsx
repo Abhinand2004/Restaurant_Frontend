@@ -14,9 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <Menu id="menu" /> 
-            <Contact id="contact" /> 
-            <Footer id="footer" />
+            <Menu  /> 
+            <Contact  /> 
+            <Footer />
           </>
         } />
       

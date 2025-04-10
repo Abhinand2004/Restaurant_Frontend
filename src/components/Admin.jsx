@@ -24,7 +24,6 @@ const Admin = () => {
         const res = await axios.get(`${url}/getmenu`);
         setMenus(res.data.menus || []);
       } catch (err) {
-        // Show a user-friendly error message instead of 404
         toast.error('Unable to fetch menus. Please try again later.');
         console.error('Failed to fetch menus', err);
       }
@@ -44,7 +43,6 @@ const Admin = () => {
       setNewMenu({ name: '', description: '' });
       toast.success('Menu added successfully!');
     } catch (err) {
-      // Handle error gracefully
       toast.error(err.response?.data?.message || 'Failed to create menu');
       console.error('Error creating menu:', err);
     }
@@ -58,7 +56,6 @@ const Admin = () => {
       const res = await axios.get(`${url}/getmenuitem/${selectedMenu._id}`);
       setMenuItems(res.data.menuItems || []);
     } catch (err) {
-      // Show a user-friendly error message instead of 404
       toast.error('Unable to fetch menu items. Please try again later.');
       console.error('Failed to fetch menu items:', err);
       setMenuItems([]);
@@ -81,7 +78,6 @@ const Admin = () => {
       setNewMenuItem({ name: '', description: '', price: '' });
       toast.success('Menu item added successfully!');
     } catch (err) {
-      // Handle error gracefully
       toast.error(err.response?.data?.message || 'Failed to add item');
       console.error('Error creating menu item:', err);
     }
@@ -97,7 +93,6 @@ const Admin = () => {
       setMenuItems([]);
       toast.success('Menu deleted successfully!');
     } catch (err) {
-      // Handle error gracefully
       toast.error('Unable to delete menu. Please try again later.');
       console.error('Error deleting menu:', err);
     }
@@ -111,7 +106,6 @@ const Admin = () => {
       setMenuItems(updatedMenuItems);
       toast.success('Menu item deleted successfully!');
     } catch (err) {
-      // Handle error gracefully
       toast.error('Unable to delete menu item. Please try again later.');
       console.error('Error deleting menu item:', err);
     }
@@ -135,7 +129,6 @@ const Admin = () => {
       setEditingItemIndex(null);
       toast.success('Menu item saved successfully!');
     } catch (err) {
-      // Handle error gracefully
       toast.error(err.response?.data?.message || 'Failed to save item');
       console.error('Error saving menu item:', err);
     }
